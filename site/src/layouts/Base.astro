@@ -1,0 +1,46 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/500.css';
+import '@fontsource/playfair-display/400-italic.css';
+
+import '../styles/tokens.css';
+import '../styles/typography.css';
+import '../styles/global.css';
+
+interface Props {
+  titel: string;
+  beschreibung: string;
+}
+
+const { titel, beschreibung } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de" data-theme="hell">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titel}</title>
+    <meta name="description" content={beschreibung} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#faf6f0" />
+
+    <!-- Modus vor dem ersten Paint setzen, damit es nicht kurz aufblitzt -->
+    <script is:inline>
+      (function () {
+        try {
+          var gespeichert = localStorage.getItem('marli-theme');
+          if (gespeichert === 'hell' || gespeichert === 'dunkel') {
+            document.documentElement.dataset.theme = gespeichert;
+          } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.dataset.theme = 'dunkel';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,117 @@
+/* ============================================================
+   Marli Tokens — 1:1 Portierung der Figma-Variablen-Collection
+   "Marli Tokens" (Datei 7M8XMZZXIaeyXrhyWZEzxT)
+
+   Ebene 1 von 3:  Variablen  →  Styles  →  Ebenen
+   In Code:        Custom Properties → Utility-Klassen → Komponenten
+
+   REGEL: Niemals eine Farbe direkt im Komponenten-CSS schreiben.
+   Immer var(--color-…) verwenden, sonst funktioniert der
+   Dunkel-Modus nicht.
+   ============================================================ */
+
+:root {
+  /* ---------- Farbe · Modus "Hell" ---------- */
+  --color-bg-canvas: #faf6f0;
+  --color-bg-surface: #ffffff;
+  --color-bg-muted: #f1eae0;
+  --color-bg-inverse: #171310;
+
+  --color-ink-primary: #171310;
+  --color-ink-secondary: #57504a;
+  --color-ink-inverse: #f7f2ea;
+  --color-ink-inverse-muted: #b3a99c;
+
+  --color-accent-brass: #7a5426;
+  --color-accent-soft: #ede3d4;
+
+  --color-border-hairline: #e2d9cc;
+  --color-border-strong: #171310;
+
+  --color-map-surface: #e6dccc;
+  --color-map-road: #faf6f0;
+
+  /* ---------- Abstände ---------- */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  /* ---------- Eckradien ---------- */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* ---------- Raster & Ränder ---------- */
+  --content-max: 1200px;   /* Inhaltsspalte Desktop */
+  --gutter-desktop: 60px;
+  --gutter-mobile: 16px;
+  --margin-desktop: 120px;
+  --margin-mobile: 24px;
+
+  /* Umschaltpunkt Desktop-Struktur → Mobil-Stapel.
+     Im Design-System als "ca. 900 px, wird beim Bau festgelegt" notiert. */
+  --breakpoint-stack: 900px;
+
+  /* ---------- Bewegung ---------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 140ms;
+  --duration-base: 240ms;
+}
+
+/* ---------- Farbe · Modus "Dunkel" ---------- */
+/* Entspricht dem Modus "Dunkel" der Figma-Collection.
+   Bewusst NICHT gespiegelt: ink/inverse und bg/inverse bleiben
+   hell-auf-dunkel, damit Hero und Footer in beiden Modi gleich lesen. */
+[data-theme='dunkel'] {
+  --color-bg-canvas: #14110e;
+  --color-bg-surface: #262019;
+  --color-bg-muted: #1c1815;
+  --color-bg-inverse: #2b241d;
+
+  --color-ink-primary: #f2ebe0;
+  --color-ink-secondary: #bcb2a5;
+  --color-ink-inverse: #f2ebe0;
+  --color-ink-inverse-muted: #a29889;
+
+  --color-accent-brass: #cda76d;
+  --color-accent-soft: #3a2e21;
+
+  --color-border-hairline: #483d33;
+  --color-border-strong: #f2ebe0;
+
+  --color-map-surface: #2a241d;
+  --color-map-road: #14110e;
+
+  color-scheme: dark;
+}
+
+/* ---------- Foto-Verläufe ----------
+   Bewusst modus-unabhängig: Fotoflächen kehren sich im Dunkelmodus
+   nicht um. Beim Austausch gegen echte Fotos wird nur die Füllung
+   ersetzt, das Layout bleibt. */
+:root {
+  --foto-wolle-anthrazit: linear-gradient(145deg, #4a4a4d 0%, #2f2f31 100%);
+  --foto-wolle-camel: linear-gradient(145deg, #c9a273 0%, #9c7748 100%);
+  --foto-chino-khaki: linear-gradient(145deg, #cdbb99 0%, #a08f6f 100%);
+  --foto-seide-champagner: linear-gradient(145deg, #ecdcc4 0%, #cbb597 100%);
+  --foto-leder-schwarz: linear-gradient(145deg, #3a332e 0%, #1e1a17 100%);
+  --foto-creme: linear-gradient(145deg, #f0e7d8 0%, #d8cab4 100%);
+  --foto-beige: linear-gradient(145deg, #ddcdb4 0%, #b8a88d 100%);
+  --foto-strick-grau: linear-gradient(145deg, #b3aca4 0%, #8b847c 100%);
+  --foto-rose: linear-gradient(145deg, #e6c9c2 0%, #c39f97 100%);
+  --foto-navy: linear-gradient(145deg, #3c4a63 0%, #232c3d 100%);
+  --foto-denim: linear-gradient(145deg, #6d84a3 0%, #45587450 100%);
+  --foto-portraet-warm: linear-gradient(145deg, #e3cdb2 0%, #b99872 100%);
+  --hero-verlauf: linear-gradient(180deg, rgba(23, 19, 16, 0) 0%, rgba(23, 19, 16, 0.72) 100%);
+}

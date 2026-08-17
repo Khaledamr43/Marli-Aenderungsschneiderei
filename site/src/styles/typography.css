@@ -1,0 +1,153 @@
+/* ============================================================
+   Typo-Skala — 1:1 Portierung der 14 Text-Styles aus Figma.
+   Playfair Display für Überschriften und Zitate, Inter für
+   Fließtext und Bedienelemente.
+   Schriftgrößen werden nie frei gesetzt — immer eine dieser
+   Klassen verwenden.
+   ============================================================ */
+
+:root {
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---------- Playfair Display ---------- */
+
+.t-display-hero {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+}
+
+.t-display-hero-mobile,
+.t-display-hero.is-mobile {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+}
+
+.t-h2-mobile,
+.t-h2.is-mobile {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.18;
+  letter-spacing: -0.3px;
+}
+
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.t-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+}
+
+/* ---------- Inter ---------- */
+
+.t-body-large {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.t-body-base {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.t-body-small {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.t-caption {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.t-label-strong {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.t-nav {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.t-eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+/* ---------- Responsive Umschaltung ----------
+   Unterhalb des Stapel-Breakpoints greifen automatisch die
+   Mobile-Stufen, damit im Markup keine zweite Klasse nötig ist. */
+@media (max-width: 899px) {
+  .t-display-hero {
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+  }
+
+  .t-h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .t-h2 {
+    font-size: 30px;
+    line-height: 1.18;
+    letter-spacing: -0.3px;
+  }
+
+  .t-quote {
+    font-size: 22px;
+  }
+}

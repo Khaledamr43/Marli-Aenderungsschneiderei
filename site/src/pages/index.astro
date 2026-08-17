@@ -1,0 +1,184 @@
+---
+/**
+ * PLATZHALTER — Prüfseite für das Fundament.
+ * Zeigt alle Farbtokens und Typo-Stufen in beiden Modi.
+ * Wird im nächsten Schritt durch die echten 8 Sektionen ersetzt.
+ */
+import Base from '../layouts/Base.astro';
+import ThemeSwitch from '../components/ThemeSwitch.astro';
+
+const farben = [
+  ['bg/canvas', '--color-bg-canvas'],
+  ['bg/surface', '--color-bg-surface'],
+  ['bg/muted', '--color-bg-muted'],
+  ['bg/inverse', '--color-bg-inverse'],
+  ['ink/primary', '--color-ink-primary'],
+  ['ink/secondary', '--color-ink-secondary'],
+  ['ink/inverse', '--color-ink-inverse'],
+  ['ink/inverse-muted', '--color-ink-inverse-muted'],
+  ['accent/brass', '--color-accent-brass'],
+  ['accent/soft', '--color-accent-soft'],
+  ['border/hairline', '--color-border-hairline'],
+  ['border/strong', '--color-border-strong'],
+  ['map/surface', '--color-map-surface'],
+  ['map/road', '--color-map-road'],
+];
+
+const stufen = [
+  ['Display/Hero', 't-display-hero', 'Marli'],
+  ['Heading/H1', 't-h1', 'Änderungen & Maßarbeit'],
+  ['Heading/H2', 't-h2', 'Handverlesene Einzelstücke'],
+  ['Heading/H3', 't-h3', 'Über Marli'],
+  ['Quote', 't-quote', 'Jedes gut gemachte Stück verdient ein zweites Leben.'],
+  ['Body/Large', 't-body-large', 'Änderungen mit Handarbeit und kuratierte Second-Hand-Mode.'],
+  ['Body/Base', 't-body-base', 'In der kleinen Werkstatt in Kolbermoor wird jedes Stück von Hand genäht.'],
+  ['Body/Small', 't-body-small', 'Ausgesuchte Kleidung aus zweiter Hand – geprüft und gereinigt.'],
+  ['Label/Strong', 't-label-strong', 'Sakko enger genäht'],
+  ['Nav', 't-nav', 'Second-Hand'],
+  ['Caption', 't-caption', 'Gr. 38 · Camel'],
+  ['Eyebrow', 't-eyebrow', 'Kundenstimmen'],
+];
+---
+
+<Base
+  titel="Marli — Änderungsschneiderei & Second-Hand, Kolbermoor"
+  beschreibung="Änderungsschneiderei und kuratierte Second-Hand-Mode in Kolbermoor bei Rosenheim."
+>
+  <header class="kopf">
+    <div class="wrap kopf__inner">
+      <span class="t-label-strong">Marli · Fundament-Prüfseite</span>
+      <ThemeSwitch />
+    </div>
+  </header>
+
+  <main class="wrap pruef">
+    <p class="t-eyebrow" style="color: var(--color-accent-brass)">Schritt 2 · Setup</p>
+    <h1 class="t-h1">Design-Fundament steht</h1>
+    <p class="t-body-large" style="color: var(--color-ink-secondary); max-width: 60ch">
+      Diese Seite ist ein Platzhalter. Sie prüft, ob alle Farbtokens und
+      Typo-Stufen aus Figma korrekt im Code liegen und ob der Hell/Dunkel-Wechsel
+      die ganze Seite umfärbt. Oben rechts umschalten.
+    </p>
+
+    <h2 class="t-h2 abschnitt">Farbtokens</h2>
+    <ul class="raster">
+      {
+        farben.map(([name, variable]) => (
+          <li class="karte">
+            <span class="karte__flaeche" style={`background: var(${variable})`}></span>
+            <span class="t-label-strong">{name}</span>
+            <span class="t-caption" style="color: var(--color-ink-secondary)">{variable}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="t-h2 abschnitt">Typo-Stufen</h2>
+    <ul class="liste">
+      {
+        stufen.map(([name, klasse, beispiel]) => (
+          <li class="zeile">
+            <span class={klasse}>{beispiel}</span>
+            <span class="t-caption" style="color: var(--color-ink-secondary)">{name}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="t-h2 abschnitt">Foto-Verläufe</h2>
+    <p class="t-body-small" style="color: var(--color-ink-secondary); max-width: 60ch">
+      Annäherung — die exakten Verlaufsstopps stehen noch in Figma und werden
+      beim Bau der Sektionen abgeglichen.
+    </p>
+    <ul class="raster raster--verlauf">
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-wolle-anthrazit)"></span><span class="t-caption">Wolle Anthrazit</span></li>
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-wolle-camel)"></span><span class="t-caption">Wolle Camel</span></li>
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-seide-champagner)"></span><span class="t-caption">Seide Champagner</span></li>
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-leder-schwarz)"></span><span class="t-caption">Leder Schwarz</span></li>
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-denim)"></span><span class="t-caption">Denim</span></li>
+      <li class="karte"><span class="karte__flaeche" style="background: var(--foto-portraet-warm)"></span><span class="t-caption">Porträt Warm</span></li>
+    </ul>
+  </main>
+
+  <footer class="fuss">
+    <div class="wrap">
+      <span class="t-body-small">Platzhalter — wird durch die echte Seite ersetzt.</span>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  .kopf {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--color-bg-canvas);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .kopf__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .pruef {
+    padding-block: var(--space-64) var(--space-96);
+  }
+
+  .abschnitt {
+    margin-top: var(--space-80);
+    margin-bottom: var(--space-24);
+    padding-top: var(--space-24);
+    border-top: 1px solid var(--color-border-hairline);
+  }
+
+  .raster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-24);
+    list-style: none;
+    padding: 0;
+  }
+
+  .karte {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .karte__flaeche {
+    display: block;
+    height: 72px;
+    border: 1px solid var(--color-border-hairline);
+    border-radius: var(--radius-md);
+  }
+
+  .liste {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+
+  .zeile {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-32);
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .zeile > :first-child {
+    min-width: 0;
+  }
+
+  .fuss {
+    background-color: var(--color-bg-inverse);
+    color: var(--color-ink-inverse);
+    padding-block: var(--space-48);
+  }
+</style>
