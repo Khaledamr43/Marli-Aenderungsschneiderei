@@ -13,7 +13,7 @@ Goal: a website that showcases the shop's tailoring/alteration work and secondha
 ## Progress
 Restarted from the beginning (15.07.2026) — Khaled asked to redo the project from Discovery rather than resume at Personas. Prior Foundation files/FigJam sections are kept as reference but are being redone.
 
-Current task: **Build — tech stack decided (17.08.2026): Astro + plain CSS, code hosted in a GitHub repo.** Next up: environment/repo setup. Note: Khaled chose to skip past the open documentation gaps for now (Research, Scope decision, the Define block, Brainstorming/HMW) — plus the "Discovery (redone)" FigJam section (node 17:174) is no longer in the board and would need rebuilding. All of this can be filled in afterwards for the case study.
+Current task: **Build — environment set up and confirmed working end-to-end (17.08.2026).** Astro project scaffolded in `site/`, Node upgraded to v26.7.0, Astro upgraded 5→7.2.2, dev server runs clean, token/typography check page confirmed working (colours + Hell/Dunkel toggle) directly by Khaled in his own browser. GitHub remote still to be created. Next up: build the real 8 sections from the hi-fi screens, starting with Nav + Hero. Note: Khaled chose to skip past the open documentation gaps for now (Research, Scope decision, the Define block, Brainstorming/HMW) — plus the "Discovery (redone)" FigJam section (node 17:174) is no longer in the board and would need rebuilding. All of this can be filled in afterwards for the case study.
 
 **Foundation**
 - [x] Discovery — new "Step 1 · Discovery (redone)" section on [FigJam board](https://www.figma.com/board/25ptTuYTufqCqzFFacyNWD) (node 17:174)
@@ -40,7 +40,7 @@ Current task: **Build — tech stack decided (17.08.2026): Astro + plain CSS, co
 
 **Build**
 - [x] Tech stack decision — **Astro + plain CSS** (17.08.2026), code in a **GitHub repo**
-- [ ] Environment/repo setup
+- [x] Environment/repo setup — Astro project in `site/`; `tokens.css` (14 Farben, Hell + Dunkel), `typography.css` (14 Stufen), `global.css`, `Base.astro`, `ThemeSwitch.astro`, Prüfseite; Git repo initialised (branch `main`, 1 commit). GitHub remote noch offen.
 - [ ] Build pages/components from hi-fi designs
 - [ ] Content population (real photos/copy)
 - [ ] Responsive implementation
@@ -105,7 +105,7 @@ Custom-coded (no WordPress/no-code builder) — this project is also a portfolio
 
 - **Tech stack decision — done 17.08.2026: Astro + plain CSS, GitHub repo.**
   Astro chosen because the site is static, photo-heavy and has no CMS: it ships effectively zero JavaScript, so the image-heavy one-pager stays fast and scores well on Lighthouse/SEO, while still giving components so the 8 second-hand tiles and 4 work cards aren't copy-pasted markup. Plain CSS (no Tailwind) because the design system already exists as a token layer in Figma — the "Marli Tokens" variables map 1:1 onto CSS custom properties, and the Hell/Dunkel modes become a `[data-theme]` attribute swap on `:root`. Code lives in a public GitHub repo so it can be linked from the portfolio case study and connected to a Vercel/Netlify deploy later.
-- Environment/repo setup
+- **Environment/repo setup — done 17.08.2026.** Astro-Projekt liegt in `site/`. Das Farbsystem aus Figma ist 1:1 als CSS-Custom-Properties portiert (`src/styles/tokens.css`): 14 Farbtokens mit beiden Modi, Abstandsskala 4–128, Radien, Rasterwerte. Der Modus hängt an `data-theme` auf `<html>`, wird im `localStorage` gemerkt und beim ersten Laden aus der Systemeinstellung übernommen; ein Inline-Skript im `<head>` setzt ihn vor dem ersten Paint, damit nichts aufblitzt. Die 14 Text-Styles liegen als `.t-…`-Klassen in `src/styles/typography.css`, Schriften selbst gehostet über Fontsource (kein Google-Fonts-CDN — DSGVO). Der Theme-Switch aus Figma ist als echte Komponente gebaut. `src/pages/index.astro` ist noch eine Prüfseite, die alle Tokens und Typo-Stufen in beiden Modi zeigt; sie wird beim nächsten Schritt durch die echten Sektionen ersetzt. Breakpoint vorläufig 900 px.
 - Build pages/components from the hi-fi designs
 - Content population — load real photos/copy (photo shoot of finished work)
 - Responsive implementation across breakpoints
