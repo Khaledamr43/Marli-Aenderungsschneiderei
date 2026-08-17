@@ -13,7 +13,7 @@ Goal: a website that showcases the shop's tailoring/alteration work and secondha
 ## Progress
 Restarted from the beginning (15.07.2026) — Khaled asked to redo the project from Discovery rather than resume at Personas. Prior Foundation files/FigJam sections are kept as reference but are being redone.
 
-Current task: **Build — environment set up and confirmed working end-to-end (17.08.2026).** Astro project scaffolded in `site/`, Node upgraded to v26.7.0, Astro upgraded 5→7.2.2, dev server runs clean, token/typography check page confirmed working (colours + Hell/Dunkel toggle) directly by Khaled in his own browser. GitHub remote still to be created. Next up: build the real 8 sections from the hi-fi screens, starting with Nav + Hero. Note: Khaled chose to skip past the open documentation gaps for now (Research, Scope decision, the Define block, Brainstorming/HMW) — plus the "Discovery (redone)" FigJam section (node 17:174) is no longer in the board and would need rebuilding. All of this can be filled in afterwards for the case study.
+Current task: **Build — environment/repo setup fully done (17.08.2026).** Astro project in `site/`, Node v26.7.0, Astro 7.2.2, token/typography check page confirmed working in Khaled's own browser (colours + Hell/Dunkel toggle). GitHub CLI installed and authenticated (Khaled logged in as Khaledamr43); repo pushed to https://github.com/Khaledamr43/marli-aenderungsschneiderei, branch `main`. Next up: build the real 8 sections from the hi-fi screens, starting with Nav + Hero. Note: Khaled chose to skip past the open documentation gaps for now (Research, Scope decision, the Define block, Brainstorming/HMW) — plus the "Discovery (redone)" FigJam section (node 17:174) is no longer in the board and would need rebuilding. All of this can be filled in afterwards for the case study.
 
 **Foundation**
 - [x] Discovery — new "Step 1 · Discovery (redone)" section on [FigJam board](https://www.figma.com/board/25ptTuYTufqCqzFFacyNWD) (node 17:174)
@@ -40,7 +40,7 @@ Current task: **Build — environment set up and confirmed working end-to-end (1
 
 **Build**
 - [x] Tech stack decision — **Astro + plain CSS** (17.08.2026), code in a **GitHub repo**
-- [x] Environment/repo setup — Astro project in `site/`; `tokens.css` (14 Farben, Hell + Dunkel), `typography.css` (14 Stufen), `global.css`, `Base.astro`, `ThemeSwitch.astro`, Prüfseite; Git repo initialised (branch `main`, 1 commit). GitHub remote noch offen.
+- [x] Environment/repo setup — Astro project in `site/`; `tokens.css` (14 Farben, Hell + Dunkel), `typography.css` (14 Stufen), `global.css`, `Base.astro`, `ThemeSwitch.astro`, Prüfseite. Repo live on GitHub: https://github.com/Khaledamr43/marli-aenderungsschneiderei
 - [ ] Build pages/components from hi-fi designs
 - [ ] Content population (real photos/copy)
 - [ ] Responsive implementation
