@@ -6,9 +6,9 @@
  * Kundinnen) — bei echten Kundenstimmen durch reale Fotos ersetzen.
  */
 import type { ImageMetadata } from 'astro';
-import andreaFoto from '../images/testimonial-andrea.jpg';
-import sabineFoto from '../images/testimonial-sabine.jpg';
-import juliaFoto from '../images/testimonial-julia.jpg';
+import andreaFoto from '../bilder/testimonial-andrea.jpg';
+import sabineFoto from '../bilder/testimonial-sabine.jpg';
+import juliaFoto from '../bilder/testimonial-julia.jpg';
 
 export interface Kundenstimme {
   zitat: string;

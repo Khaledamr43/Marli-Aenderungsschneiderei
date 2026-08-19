@@ -6,10 +6,10 @@
  * falls das Motiv zu hochformatig für die 4:5-Karte ist.
  */
 import type { ImageMetadata } from 'astro';
-import jackeFoto from '../images/arbeit-jacke-navy.jpg';
-import jeansFoto from '../images/arbeit-jeans-denim.jpg';
-import abendkleidFoto from '../images/arbeit-abendkleid-navy.jpg';
-import kleidFoto from '../images/arbeit-kleid-punkte.jpg';
+import jackeFoto from '../bilder/arbeit-jacke-navy.jpg';
+import jeansFoto from '../bilder/arbeit-jeans-denim.jpg';
+import abendkleidFoto from '../bilder/arbeit-abendkleid-navy.jpg';
+import kleidFoto from '../bilder/arbeit-kleid-punkte.jpg';
 
 export interface Arbeit {
   titel: string;

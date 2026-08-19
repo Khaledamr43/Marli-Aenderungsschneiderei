@@ -6,7 +6,7 @@ Goal: a website that showcases the shop's tailoring/alteration work and secondha
 
 **Documentation rule:** every Define/Ideate/Prototype step is documented visually on the [FigJam board](https://www.figma.com/board/25ptTuYTufqCqzFFacyNWD) — not just the final deliverable, but the reasoning behind each decision. This documentation is the substance of the portfolio case study, not just the final screens.
 
-**Scope decision (15.07.2026):** portfolio one-pager — shows work, products, and location. Photo-first. No e-commerce, no booking/forms, no CTAs, no CMS. Details in `03-SCOPE-SITEMAP.md`.
+**Scope decision (15.07.2026):** portfolio one-pager — shows work, products, and location. Photo-first. No e-commerce, no booking/forms, no CTAs, no CMS. Details in `docs/03-SCOPE-SITEMAP.md`.
 
 **Design process (15.07.2026):** design thinking without Empathize — Define → Ideate → Prototype → Build → QA & Test → Deploy & Launch → Case study wrap-up.
 
@@ -19,8 +19,8 @@ Previous milestone — **Nav + Hero built (17.08.2026).** `site/src/components/N
 
 **Foundation**
 - [x] Discovery — new "Step 1 · Discovery (redone)" section on [FigJam board](https://www.figma.com/board/25ptTuYTufqCqzFFacyNWD) (node 17:174)
-- [ ] Research — `02-RESEARCH.md` + FigJam
-- [ ] Scope decision — `03-SCOPE-SITEMAP.md` + FigJam
+- [ ] Research — `docs/02-RESEARCH.md` + FigJam
+- [ ] Scope decision — `docs/03-SCOPE-SITEMAP.md` + FigJam
 
 **Define**
 - [ ] Personas
@@ -30,7 +30,7 @@ Previous milestone — **Nav + Hero built (17.08.2026).** `site/src/components/N
 
 **Ideate**
 - [x] Information architecture — built as "Information Architecture" section on the FigJam board (node 33:71); root + nav/6 sections/footer + content cards, matching wireframes
-- [x] User flow — built on FigJam board (section "User Flow", node 26:2); redo of `04b-USER-FLOW.md`
+- [x] User flow — built on FigJam board (section "User Flow", node 26:2); redo of `docs/04b-USER-FLOW.md`
 - [ ] Brainstorming
 - [ ] How might we (refine)
 - [x] Low-fidelity wireframes — desktop one-pager in Figma design file `7M8XMZZXIaeyXrhyWZEzxT` ("Khalid's team"); 8 sections matching the user flow

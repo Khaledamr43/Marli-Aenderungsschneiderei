@@ -4,14 +4,14 @@
  * Stücke) — bei echtem Warenbestand durch reale Fotos ersetzen.
  */
 import type { ImageMetadata } from 'astro';
-import cocktailkleidFoto from '../images/secondhand-cocktailkleid-schwarz.jpg';
-import jerseykleidFoto from '../images/secondhand-jerseykleid-pink.jpg';
-import maxikleidFoto from '../images/secondhand-maxikleid-leo.jpg';
-import minikleidFoto from '../images/secondhand-minikleid-punkte.jpg';
-import musterkleidFoto from '../images/secondhand-musterkleid-schwarzweiss.jpg';
-import bluseFoto from '../images/secondhand-bluse-floral.jpg';
-import rockFoto from '../images/secondhand-rock-gruen.jpg';
-import mantelFoto from '../images/secondhand-mantel-camel.jpg';
+import cocktailkleidFoto from '../bilder/secondhand-cocktailkleid-schwarz.jpg';
+import jerseykleidFoto from '../bilder/secondhand-jerseykleid-pink.jpg';
+import maxikleidFoto from '../bilder/secondhand-maxikleid-leo.jpg';
+import minikleidFoto from '../bilder/secondhand-minikleid-punkte.jpg';
+import musterkleidFoto from '../bilder/secondhand-musterkleid-schwarzweiss.jpg';
+import bluseFoto from '../bilder/secondhand-bluse-floral.jpg';
+import rockFoto from '../bilder/secondhand-rock-gruen.jpg';
+import mantelFoto from '../bilder/secondhand-mantel-camel.jpg';
 
 export interface SecondhandStueck {
   titel: string;
