@@ -1,0 +1,104 @@
+---
+/**
+ * Kundenstimmen — drei Zitate im Karten-Raster.
+ * Die Homepage-Sektion selbst ließ sich über die Figma-MCP-Werkzeuge nicht
+ * auffinden (Node-ID unbekannt); Karten-Zuschnitt und -Stile stammen aus der
+ * dokumentierten "Kundenstimme"-Komponente (Design-System-Seite, Node 41:171).
+ */
+import { Image } from 'astro:assets';
+import { kundenstimmen } from '../data/stimmen';
+---
+
+<section id="kundenstimmen" class="sektion sektion--muted">
+  <div class="wrap">
+    <div class="sektion-kopf">
+      <p class="t-eyebrow">Stimmen</p>
+      <h2 class="t-h2">Was Kundinnen sagen</h2>
+    </div>
+
+    <ul class="stimmen-grid">
+      {kundenstimmen.map((stimme) => (
+        <li class="stimme">
+          <span class="stimme__zeichen" aria-hidden="true">„</span>
+          <p class="t-body-large stimme__zitat">{stimme.zitat}</p>
+          <div class="stimme__autor">
+            <Image
+              src={stimme.foto}
+              alt=""
+              class="stimme__avatar"
+              width={80}
+              height={80}
+              quality={80}
+              loading="lazy"
+            />
+            <div>
+              <p class="t-label-strong">{stimme.name}</p>
+              <p class="t-caption stimme__ort">{stimme.ort}</p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sektion--muted {
+    background-color: var(--color-bg-muted);
+  }
+
+  .stimmen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter-desktop);
+    list-style: none;
+    padding: 0;
+  }
+
+  .stimme {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-32);
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  .stimme__zeichen {
+    font-family: var(--font-display);
+    font-size: 40px;
+    line-height: 1;
+    color: var(--color-accent-brass);
+    margin-bottom: var(--space-16);
+  }
+
+  .stimme__zitat {
+    margin-bottom: var(--space-24);
+  }
+
+  .stimme__autor {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    margin-top: auto;
+  }
+
+  .stimme__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .stimme__ort {
+    color: var(--color-ink-secondary);
+  }
+
+  @media (max-width: 899px) {
+    .stimmen-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-24);
+    }
+  }
+</style>

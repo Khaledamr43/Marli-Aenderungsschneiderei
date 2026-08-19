@@ -1,0 +1,140 @@
+---
+/**
+ * Standort & Kontakt — echte Google-Maps-Karte + Adresse, Öffnungszeiten,
+ * Kontakt. Entspricht Figma-Frame 26:2 (Desktop). Die Karte zeigt den
+ * echten Google-Maps-Ausschnitt (Embed, ohne API-Key — "Teilen → Karte
+ * einbetten" aus der Maps-Oberfläche für den Eintrag "Änderungsschneiderei
+ * und Second-Hand Marli") und ist als Link zum vollen Eintrag ausgeführt,
+ * damit Kundinnen direkt zur Anfahrt kommen — Abweichung von der
+ * ursprünglichen "keine CTA"-Scope-Entscheidung, auf Wunsch nachträglich
+ * ergänzt. Das iframe selbst ist pointer-events:none (nicht drag-/zoombar,
+ * rein visuell) — Klicks gehen an den umschließenden Link.
+ */
+const googleMapsUrl = 'https://share.google/8rPp6syfD4A2eWoCz';
+const googleMapsEmbedSrc =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.814114703696!2d12.068574560278552!3d47.84981017379262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47761b0a472264a3%3A0x6a5f49446c5c4e81!2s%C3%84nderungsschneiderei%20und%20Second%20-%20Hand%20Marli!5e0!3m2!1sen!2sde!4v1787148355471!5m2!1sen!2sde';
+
+const oeffnungszeiten = [
+  { tag: 'Montag – Freitag', zeit: '09:00 – 18:00' },
+  { tag: 'Samstag', zeit: '10:00 – 14:00' },
+  { tag: 'Sonntag', zeit: 'geschlossen' },
+];
+---
+
+<section id="standort" class="sektion">
+  <div class="wrap standort">
+    <div class="standort__karte">
+      <a
+        href={googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="karte"
+        aria-label="Route zu Marli in Kolbermoor in Google Maps öffnen"
+      >
+        <iframe
+          class="karte__iframe"
+          src={googleMapsEmbedSrc}
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          tabindex="-1"
+          aria-hidden="true"
+        ></iframe>
+      </a>
+    </div>
+
+    <div class="standort__text">
+      <p class="t-eyebrow">Standort</p>
+      <h2 class="t-h2">Vorbeikommen</h2>
+
+      <div class="standort__block">
+        <p class="t-label-strong">Adresse</p>
+        <p class="t-body-base">Rosenheimer Str. 29a<br />83059 Kolbermoor</p>
+      </div>
+
+      <div class="standort__block">
+        <p class="t-label-strong">Öffnungszeiten</p>
+        <ul class="oeffnungszeiten">
+          {oeffnungszeiten.map((zeile) => (
+            <li class="t-body-base">
+              <span>{zeile.tag}</span>
+              <span>{zeile.zeit}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="standort__block">
+        <p class="t-label-strong">Kontakt</p>
+        <p class="t-body-base">Telefon 08031 123 456</p>
+        <p class="t-body-base">hallo@marli-kolbermoor.de</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .standort {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-128);
+  }
+
+  .standort__karte {
+    flex: 0 0 500px;
+  }
+
+  .karte {
+    display: block;
+    cursor: pointer;
+  }
+
+  .karte__iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .standort__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-32);
+  }
+
+  .standort__block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .oeffnungszeiten {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .oeffnungszeiten li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-32);
+    max-width: 320px;
+    color: var(--color-ink-secondary);
+  }
+
+  @media (max-width: 899px) {
+    .standort {
+      flex-direction: column;
+      gap: var(--space-48);
+    }
+
+    .standort__karte {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
+</style>

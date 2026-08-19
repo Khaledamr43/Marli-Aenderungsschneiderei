@@ -103,3 +103,62 @@ button {
   outline: 2px solid var(--color-accent-brass);
   outline-offset: 3px;
 }
+
+/* ---------- Sektionen ----------
+   Wiederkehrendes Muster aus dem Design System: Eyebrow + H2 + Intro,
+   gefolgt vom sektionseigenen Inhalt (Grid, Spalten, Karte …). */
+
+.sektion {
+  padding-block: var(--space-96);
+}
+
+@media (max-width: 899px) {
+  .sektion {
+    padding-block: var(--space-64);
+  }
+}
+
+.sektion-kopf {
+  max-width: 660px;
+  margin-bottom: var(--space-48);
+}
+
+.sektion-kopf > .t-eyebrow {
+  color: var(--color-accent-brass);
+  margin-bottom: var(--space-16);
+}
+
+.sektion-kopf > .t-h2 {
+  margin-bottom: var(--space-16);
+}
+
+.sektion-kopf > .t-body-large {
+  color: var(--color-ink-secondary);
+}
+
+/* ---------- Foto-Platzhalter ----------
+   Verlaufsfläche für noch fehlende Fotos, siehe tokens.css (--foto-*).
+   Nutzung: <div class="foto-flaeche" style="--foto: var(--foto-wolle-camel)"> */
+
+.foto-flaeche {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background: var(--foto);
+  overflow: hidden;
+}
+
+.foto-flaeche--kachel {
+  aspect-ratio: 17 / 20;
+}
+
+.foto-flaeche::after {
+  content: 'Foto';
+  position: absolute;
+  left: var(--space-16);
+  bottom: var(--space-16);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  color: rgb(255 255 255 / 70%);
+}

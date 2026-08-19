@@ -1,0 +1,199 @@
+---
+/**
+ * Nav — Kopfzeile mit Wortmarke, Hauptnavigation und Theme-Switch.
+ * Entspricht Figma-Frames 18:3 (Desktop) / 28:3 (Mobil).
+ * Unter --breakpoint-stack klappt die Navigation in ein Dropdown-Panel,
+ * das über den Burger-Button geöffnet wird (in Figma noch nicht entworfen).
+ */
+import ThemeSwitch from './ThemeSwitch.astro';
+
+const navLinks = [
+  { href: '#aenderungen', label: 'Änderungen' },
+  { href: '#second-hand', label: 'Second-Hand' },
+  { href: '#ueber-uns', label: 'Über uns' },
+  { href: '#kundenstimmen', label: 'Kundenstimmen' },
+  { href: '#standort', label: 'Standort' },
+];
+---
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="/" class="nav__wortmarke">
+      <span class="nav__marke">MARLI</span>
+      <span class="nav__unterzeile">Änderungsschneiderei &amp; Second-Hand</span>
+    </a>
+
+    <div class="nav__rechts">
+      <nav id="hauptnav" class="nav__links" aria-label="Hauptnavigation" data-nav-panel data-open="false">
+        {navLinks.map((link) => (
+          <a href={link.href} class="t-nav">{link.label}</a>
+        ))}
+      </nav>
+
+      <ThemeSwitch />
+
+      <button
+        type="button"
+        class="nav__burger"
+        aria-expanded="false"
+        aria-controls="hauptnav"
+        aria-label="Menü öffnen"
+        data-nav-burger
+      >
+        <span class="nav__burger-linie"></span>
+        <span class="nav__burger-linie"></span>
+        <span class="nav__burger-linie nav__burger-linie--kurz"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    --nav-hoehe: 88px;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: var(--color-bg-canvas);
+    border-bottom: 1px solid var(--color-border-hairline);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-hoehe);
+  }
+
+  .nav__wortmarke {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .nav__marke {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 3.4px;
+    color: var(--color-ink-primary);
+  }
+
+  .nav__unterzeile {
+    font-family: var(--font-ui);
+    font-weight: 500;
+    font-size: 9.5px;
+    line-height: 1.2;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: var(--color-ink-secondary);
+  }
+
+  .nav__rechts {
+    display: flex;
+    align-items: center;
+    gap: var(--space-40);
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-40);
+    color: var(--color-ink-primary);
+  }
+
+  .nav__burger {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 5px;
+    padding: var(--space-12);
+    margin: calc(var(--space-12) * -1);
+  }
+
+  .nav__burger-linie {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background-color: var(--color-ink-primary);
+  }
+
+  .nav__burger-linie--kurz {
+    width: 14px;
+  }
+
+  @media (max-width: 899px) {
+    .nav {
+      --nav-hoehe: 64px;
+    }
+
+    .nav__unterzeile {
+      display: none;
+    }
+
+    .nav__rechts {
+      gap: var(--space-16);
+    }
+
+    .nav__burger {
+      display: flex;
+    }
+
+    .nav__links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background-color: var(--color-bg-canvas);
+      border-bottom: 1px solid var(--color-border-hairline);
+      padding: var(--space-8) var(--margin-mobile) var(--space-16);
+    }
+
+    .nav__links[data-open='true'] {
+      display: flex;
+    }
+
+    .nav__links a {
+      padding-block: var(--space-12);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .nav__links a:first-child {
+      border-top: none;
+    }
+  }
+</style>
+
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('[data-nav-burger]');
+  const panel = document.querySelector<HTMLElement>('[data-nav-panel]');
+
+  function schliessen() {
+    burger?.setAttribute('aria-expanded', 'false');
+    panel?.setAttribute('data-open', 'false');
+  }
+
+  burger?.addEventListener('click', () => {
+    const offen = panel?.getAttribute('data-open') === 'true';
+    burger.setAttribute('aria-expanded', String(!offen));
+    panel?.setAttribute('data-open', String(!offen));
+  });
+
+  panel?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).tagName === 'A') {
+      schliessen();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      schliessen();
+    }
+  });
+</script>

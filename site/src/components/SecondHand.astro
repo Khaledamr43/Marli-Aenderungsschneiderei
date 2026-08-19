@@ -1,0 +1,87 @@
+---
+/**
+ * Second-Hand Auswahl — 8 Einzelstücke im Raster.
+ * Entspricht Figma-Frame 23:2 (Desktop). Raster 4×2 → 2-up auf Mobil,
+ * siehe PROJECT_PLAN.md.
+ */
+import { Image } from 'astro:assets';
+import { secondhandStuecke } from '../data/secondhand';
+---
+
+<section id="second-hand" class="sektion sektion--muted">
+  <div class="wrap">
+    <div class="sektion-kopf">
+      <p class="t-eyebrow">Second-Hand</p>
+      <h2 class="t-h2">Handverlesene Einzelstücke</h2>
+      <p class="t-body-large">
+        Ausgesuchte Kleidung aus zweiter Hand – geprüft, gereinigt und wo nötig direkt in der
+        Werkstatt geändert.
+      </p>
+    </div>
+
+    <ul class="secondhand-grid">
+      {secondhandStuecke.map((stueck) => (
+        <li>
+          <div class="stueck-foto">
+            <Image
+              src={stueck.foto}
+              alt=""
+              widths={[300, 460]}
+              sizes="(max-width: 899px) 50vw, 25vw"
+              quality={80}
+              loading="lazy"
+            />
+          </div>
+          <p class="t-label-strong">{stueck.titel}</p>
+        </li>
+      ))}
+    </ul>
+
+    <p class="t-body-small hinweis">Der Bestand wechselt laufend – ein Blick im Laden lohnt sich.</p>
+  </div>
+</section>
+
+<style>
+  .sektion--muted {
+    background-color: var(--color-bg-muted);
+  }
+
+  .secondhand-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gutter-desktop) var(--gutter-desktop);
+    list-style: none;
+    padding: 0;
+  }
+
+  .secondhand-grid li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stueck-foto {
+    position: relative;
+    aspect-ratio: 17 / 20;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-16);
+  }
+
+  .stueck-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hinweis {
+    margin-top: var(--space-32);
+    color: var(--color-ink-secondary);
+  }
+
+  @media (max-width: 899px) {
+    .secondhand-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--gutter-mobile);
+    }
+  }
+</style>

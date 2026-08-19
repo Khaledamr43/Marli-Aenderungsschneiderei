@@ -1,0 +1,92 @@
+---
+/**
+ * Über Marli — Porträt + Werkstatt-Geschichte + Zitat.
+ * Entspricht Figma-Frame 24:2 (Desktop).
+ */
+import { Image } from 'astro:assets';
+import marliPortraet from '../images/marli-portraet.jpg';
+---
+
+<section id="ueber-uns" class="sektion">
+  <div class="wrap about">
+    <div class="about__portraet">
+      <Image
+        src={marliPortraet}
+        alt="Marli in ihrer Änderungsschneiderei in Kolbermoor"
+        class="about__foto"
+        widths={[400, 600, 920]}
+        sizes="(max-width: 899px) 100vw, 460px"
+        quality={80}
+        loading="lazy"
+      />
+    </div>
+
+    <div class="about__text">
+      <p class="t-eyebrow">Über uns</p>
+      <h2 class="t-h2">Über Marli</h2>
+      <p class="t-body-large">
+        Seit über 20 Jahren ändert, repariert und näht Marli – mit Liebe zum Detail und einem
+        Blick dafür, was ein Kleidungsstück wirklich braucht.
+      </p>
+      <p class="t-body-base">
+        In der kleinen Werkstatt in Kolbermoor wird jedes Stück von Hand gesteckt, abgesteckt und
+        genäht: vom gekürzten Hosensaum über den neuen Reißverschluss bis zum Brautkleid, das
+        genau sitzen muss. Was sich ändern lässt, wird geändert – und nicht ersetzt.
+      </p>
+      <p class="t-body-base">
+        Daneben steht eine kleine, sorgfältig ausgesuchte Second-Hand-Auswahl: Einzelstücke, die
+        noch lange getragen werden können – und die auf Wunsch gleich vor Ort angepasst werden.
+      </p>
+      <blockquote class="t-quote about__zitat">
+        Jedes gut gemachte Stück verdient ein zweites Leben.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-96);
+  }
+
+  .about__portraet {
+    position: relative;
+    flex: 0 0 460px;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .about__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+
+  .about__zitat {
+    margin: 0;
+    padding-left: var(--space-24);
+    border-left: 2px solid var(--color-accent-brass);
+    color: var(--color-ink-primary);
+  }
+
+  @media (max-width: 899px) {
+    .about {
+      flex-direction: column;
+      gap: var(--space-32);
+    }
+
+    .about__portraet {
+      flex-basis: auto;
+      width: 100%;
+    }
+  }
+</style>

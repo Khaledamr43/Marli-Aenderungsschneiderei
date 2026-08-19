@@ -56,8 +56,9 @@ Der Modus hängt an `data-theme` auf `<html>` (`hell` / `dunkel`), wird im
 
 ## Noch offen
 
-- [ ] Echte Fotos — alle Bildflächen sind bisher Verlaufs-Platzhalter
-- [ ] Exakte Verlaufsstopps der `Foto/*`-Styles aus Figma übernehmen
+- [ ] Echte Fotos — alle Bildflächen sind bisher Verlaufs-Platzhalter (`--foto-*`)
 - [ ] Telefonnummer und E-Mail sind Platzhalter (nur die Adresse stimmt)
+- [ ] Instagram-Link im Footer zeigt noch nirgends hin (Handle unbekannt)
 - [ ] Breakpoint zwischen 390 und 1440 px endgültig festlegen (derzeit 900 px)
-- [ ] Impressum & Datenschutz
+- [ ] Impressum & Datenschutz — Footer verlinkt bereits auf `/impressum` und `/datenschutz`, Seiten fehlen noch
+- [ ] Kundenstimmen-Sektion hat keinen zugehörigen Figma-Node (nicht auffindbar über MCP) — Karten-Stil kommt aus der Design-System-Doku, zwei der drei Zitate sind Platzhalter
