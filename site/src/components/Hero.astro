@@ -75,20 +75,23 @@ const heroMobil = `url(${import.meta.env.BASE_URL}bilder/hero-sakko-mobil.webp)`
   .hero__text {
     margin: 0;
     max-width: 500px;
-    color: var(--color-ink-inverse-muted);
+    color: var(--color-ink-inverse);
   }
 
   .hero__scroll {
     display: inline-flex;
     align-items: center;
     gap: var(--space-8);
-    color: var(--color-ink-inverse-muted);
-    transition: color var(--duration-fast) var(--ease-standard);
+    color: var(--color-ink-inverse);
+    text-underline-offset: 3px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color var(--duration-fast) var(--ease-standard);
   }
 
   .hero__scroll:hover,
   .hero__scroll:focus-visible {
-    color: var(--color-ink-inverse);
+    text-decoration-color: currentColor;
   }
 
   .hero__scroll span {
