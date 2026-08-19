@@ -23,7 +23,7 @@ const { titel, beschreibung } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titel}</title>
     <meta name="description" content={beschreibung} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <meta name="theme-color" content="#faf6f0" />
 
     <!-- Modus vor dem ersten Paint setzen, damit es nicht kurz aufblitzt -->
