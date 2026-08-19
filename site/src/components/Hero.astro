@@ -6,6 +6,8 @@
  * Foto + Scrim sind bewusst modus-unabhängig (wie die Foto/*-Verläufe in
  * tokens.css) — Hero bleibt in Hell und Dunkel gleich dunkel.
  */
+const heroDesktop = `url(${import.meta.env.BASE_URL}bilder/hero-sakko.webp)`;
+const heroMobil = `url(${import.meta.env.BASE_URL}bilder/hero-sakko-mobil.webp)`;
 ---
 
 <section class="hero" id="hero">
@@ -26,7 +28,7 @@
   </div>
 </section>
 
-<style>
+<style define:vars={{ heroDesktop, heroMobil }}>
   .hero {
     --hero-scrim: linear-gradient(90deg, rgba(13, 10, 8, 0.55) 0%, rgba(13, 10, 8, 0.05) 65%);
 
@@ -38,7 +40,7 @@
     overflow: hidden;
     color: var(--color-ink-inverse);
     background-color: #221a14;
-    background-image: var(--hero-scrim), url("/bilder/hero-sakko.webp");
+    background-image: var(--hero-scrim), var(--heroDesktop);
     background-size: cover, cover;
     background-position: center, top center;
     background-repeat: no-repeat, no-repeat;
@@ -85,7 +87,7 @@
 
   @media (max-width: 899px) {
     .hero {
-      background-image: var(--hero-scrim), url("/bilder/hero-sakko-mobil.webp");
+      background-image: var(--hero-scrim), var(--heroMobil);
       background-position: center, center;
 
       min-height: clamp(560px, 47vw, 680px);
