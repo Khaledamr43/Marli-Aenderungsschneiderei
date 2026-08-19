@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   // TODO: auf die echte Domain umstellen, sobald sie feststeht (dann `base` entfernen)
   site: 'https://khaledamr43.github.io',
-  base: '/marli-aenderungsschneiderei/',
+  base: '/Marli-Aenderungsschneiderei/',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
