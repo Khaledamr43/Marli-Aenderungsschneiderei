@@ -37,10 +37,27 @@ const { titel, beschreibung } = Astro.props;
             document.documentElement.dataset.theme = 'dunkel';
           }
         } catch (e) {}
+        document.documentElement.classList.add('js-anim');
       })();
     </script>
   </head>
   <body>
     <slot />
+
+    <script>
+      const beobachter = new IntersectionObserver(
+        (eintraege) => {
+          for (const eintrag of eintraege) {
+            if (eintrag.isIntersecting) {
+              eintrag.target.classList.add('ist-sichtbar');
+              beobachter.unobserve(eintrag.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+      );
+
+      document.querySelectorAll('.sektion').forEach((el) => beobachter.observe(el));
+    </script>
   </body>
 </html>

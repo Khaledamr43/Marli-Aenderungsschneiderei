@@ -62,6 +62,13 @@ import { kundenstimmen } from '../data/stimmen';
     background-color: var(--color-bg-surface);
     border: 1px solid var(--color-border-hairline);
     border-radius: var(--radius-lg);
+    transition: transform var(--duration-base) var(--ease-standard),
+      box-shadow var(--duration-base) var(--ease-standard);
+  }
+
+  .stimme:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgb(23 19 16 / 8%);
   }
 
   .stimme__zeichen {

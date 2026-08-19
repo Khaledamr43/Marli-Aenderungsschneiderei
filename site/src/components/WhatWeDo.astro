@@ -28,17 +28,19 @@ import { arbeiten, leistungen } from '../data/arbeiten';
     <ul class="arbeiten-grid">
       {arbeiten.map((arbeit) => (
         <li>
-          <div class:list={['arbeit-foto', { 'arbeit-foto--contain': arbeit.fotoFit === 'contain' }]}>
-            <Image
-              src={arbeit.foto}
-              alt=""
-              widths={[300, 460]}
-              sizes="(max-width: 899px) 100vw, 25vw"
-              quality={80}
-              loading="lazy"
-            />
-          </div>
-          <p class="t-label-strong">{arbeit.titel}</p>
+          <figure>
+            <div class:list={['arbeit-foto', { 'arbeit-foto--contain': arbeit.fotoFit === 'contain' }]}>
+              <Image
+                src={arbeit.foto}
+                alt=""
+                widths={[300, 460]}
+                sizes="(max-width: 899px) 100vw, 25vw"
+                quality={80}
+                loading="lazy"
+              />
+            </div>
+            <figcaption class="t-label-strong">{arbeit.titel}</figcaption>
+          </figure>
         </li>
       ))}
     </ul>
@@ -88,6 +90,11 @@ import { arbeiten, leistungen } from '../data/arbeiten';
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--duration-base) var(--ease-standard);
+  }
+
+  .arbeit-foto:hover img {
+    transform: scale(1.05);
   }
 
   .arbeit-foto--contain {

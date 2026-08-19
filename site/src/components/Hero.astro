@@ -83,6 +83,26 @@ const heroMobil = `url(${import.meta.env.BASE_URL}bilder/hero-sakko-mobil.webp)`
     align-items: center;
     gap: var(--space-8);
     color: var(--color-ink-inverse-muted);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .hero__scroll:hover,
+  .hero__scroll:focus-visible {
+    color: var(--color-ink-inverse);
+  }
+
+  .hero__scroll span {
+    animation: hero-scroll-bounce 2.2s ease-in-out infinite;
+  }
+
+  @keyframes hero-scroll-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(3px);
+    }
   }
 
   @media (max-width: 899px) {

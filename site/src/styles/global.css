@@ -110,6 +110,19 @@ button {
 
 .sektion {
   padding-block: var(--space-96);
+  transition: opacity 0.7s var(--ease-standard), transform 0.7s var(--ease-standard);
+}
+
+/* Scroll-Reveal — nur aktiv, wenn JS lief (siehe Base.astro) und der
+   Nutzer keine reduzierte Bewegung eingestellt hat (siehe Regel oben). */
+html.js-anim .sektion {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+html.js-anim .sektion.ist-sichtbar {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 899px) {

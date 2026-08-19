@@ -61,6 +61,16 @@
     gap: var(--space-32);
   }
 
+  .fusszeile__links a {
+    color: var(--color-ink-inverse-muted);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .fusszeile__links a:hover,
+  .fusszeile__links a:focus-visible {
+    color: var(--color-ink-inverse);
+  }
+
   .fusszeile__copyright {
     color: var(--color-ink-inverse-muted);
   }
