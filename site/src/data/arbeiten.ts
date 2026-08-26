@@ -18,7 +18,7 @@ export interface Arbeit {
 }
 
 export const arbeiten: Arbeit[] = [
-  { titel: 'Jacke tailliert', foto: jackeFoto },
+  { titel: 'Jacke enger gemacht', foto: jackeFoto },
   { titel: 'Jeans gekürzt', foto: jeansFoto },
   { titel: 'Abendkleid enger genäht', foto: abendkleidFoto },
   { titel: 'Kleid neu gesäumt', foto: kleidFoto, fotoFit: 'contain' },
