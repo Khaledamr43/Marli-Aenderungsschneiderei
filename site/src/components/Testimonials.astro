@@ -4,6 +4,9 @@
  * Die Homepage-Sektion selbst ließ sich über die Figma-MCP-Werkzeuge nicht
  * auffinden (Node-ID unbekannt); Karten-Zuschnitt und -Stile stammen aus der
  * dokumentierten "Kundenstimme"-Komponente (Design-System-Seite, Node 41:171).
+ * Alle zehn Stimmen aus dem Pool werden gerendert; ein Inline-Script wählt
+ * bei jedem Seitenaufruf drei zufällige davon aus und blendet den Rest aus
+ * (siehe <script> unten). Ohne JavaScript bleiben alle zehn sichtbar.
  */
 import { Image } from 'astro:assets';
 import { kundenstimmen } from '../data/stimmen';
@@ -16,9 +19,9 @@ import { kundenstimmen } from '../data/stimmen';
       <h2 class="t-h2">Was Kundinnen sagen</h2>
     </div>
 
-    <ul class="stimmen-grid">
-      {kundenstimmen.map((stimme) => (
-        <li class="stimme">
+    <ul class="stimmen-grid" data-stimmen-grid>
+      {kundenstimmen.map((stimme, index) => (
+        <li class="stimme" data-stimme-index={index}>
           <span class="stimme__zeichen" aria-hidden="true">„</span>
           <p class="t-body-large stimme__zitat">{stimme.zitat}</p>
           <div class="stimme__autor">
@@ -66,6 +69,10 @@ import { kundenstimmen } from '../data/stimmen';
       box-shadow var(--duration-base) var(--ease-standard);
   }
 
+  .stimme[hidden] {
+    display: none;
+  }
+
   .stimme:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 32px rgb(23 19 16 / 8%);
@@ -109,3 +116,26 @@ import { kundenstimmen } from '../data/stimmen';
     }
   }
 </style>
+
+<script>
+  const ANZAHL_SICHTBAR = 3;
+
+  const grid = document.querySelector<HTMLUListElement>('[data-stimmen-grid]');
+  const karten = Array.from(grid?.querySelectorAll<HTMLLIElement>('[data-stimme-index]') ?? []);
+
+  function zufallsIndizes(gesamt: number, anzahl: number): Set<number> {
+    const indizes = Array.from({ length: gesamt }, (_, i) => i);
+    for (let i = indizes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indizes[i], indizes[j]] = [indizes[j], indizes[i]];
+    }
+    return new Set(indizes.slice(0, anzahl));
+  }
+
+  if (karten.length > ANZAHL_SICHTBAR) {
+    const ausgewaehlt = zufallsIndizes(karten.length, ANZAHL_SICHTBAR);
+    karten.forEach((karte, index) => {
+      karte.hidden = !ausgewaehlt.has(index);
+    });
+  }
+</script>
