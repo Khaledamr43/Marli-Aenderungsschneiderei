@@ -23,6 +23,7 @@ const strukturierteDaten = {
   '@type': ['LocalBusiness', 'ClothingStore'],
   name: 'Änderungsschneiderei und Second-Hand Marli',
   alternateName: 'Marli Änderungsschneiderei',
+  description: beschreibung,
   image: ogBildUrl.href,
   url: kanonischeUrl.href,
   telephone: '+49 170 3540309',
@@ -37,6 +38,18 @@ const strukturierteDaten = {
     '@type': 'GeoCoordinates',
     latitude: 47.84981017379262,
     longitude: 12.068574560278552,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Kolbermoor' },
+    { '@type': 'City', name: 'Rosenheim' },
+  ],
+  sameAs: [
+    'https://www.google.com/maps/place/?q=place_id:0x47761b0a472264a3:0x6a5f49446c5c4e81',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '2',
   },
   openingHoursSpecification: [
     {
