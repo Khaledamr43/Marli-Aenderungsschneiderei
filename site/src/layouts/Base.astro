@@ -14,6 +14,45 @@ interface Props {
 }
 
 const { titel, beschreibung } = Astro.props;
+
+const kanonischeUrl = new URL(Astro.url.pathname, Astro.site);
+const ogBildUrl = new URL(`${import.meta.env.BASE_URL}bilder/hero-sakko.webp`, Astro.site);
+
+const strukturierteDaten = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'ClothingStore'],
+  name: 'Änderungsschneiderei und Second-Hand Marli',
+  alternateName: 'Marli Änderungsschneiderei',
+  image: ogBildUrl.href,
+  url: kanonischeUrl.href,
+  telephone: '+49 170 3540309',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rosenheimer Str. 29a',
+    postalCode: '83059',
+    addressLocality: 'Kolbermoor',
+    addressCountry: 'DE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 47.84981017379262,
+    longitude: 12.068574560278552,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '10:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '09:00',
+      closes: '13:00',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -23,8 +62,23 @@ const { titel, beschreibung } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{titel}</title>
     <meta name="description" content={beschreibung} />
+    <link rel="canonical" href={kanonischeUrl.href} />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <meta name="theme-color" content="#faf6f0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Marli" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={titel} />
+    <meta property="og:description" content={beschreibung} />
+    <meta property="og:url" content={kanonischeUrl.href} />
+    <meta property="og:image" content={ogBildUrl.href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titel} />
+    <meta name="twitter:description" content={beschreibung} />
+    <meta name="twitter:image" content={ogBildUrl.href} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(strukturierteDaten)} />
 
     <!-- Modus vor dem ersten Paint setzen, damit es nicht kurz aufblitzt -->
     <script is:inline>

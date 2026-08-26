@@ -4,14 +4,20 @@
  * Erste Stimme aus der Figma-Design-System-Dokumentation übernommen,
  * die übrigen im gleichen Ton ergänzt (echte Zitate stehen noch aus).
  * Fotos sind Platzhalter (freie Placeholder-Portraits, keine echten
- * Kundinnen) — nur drei Fotos vorhanden, werden über die zehn Einträge
- * hinweg wiederverwendet. Bei echten Kundenstimmen durch reale Fotos
- * ersetzen.
+ * Kundinnen) — jeder Eintrag hat ein eigenes Foto. Bei echten
+ * Kundenstimmen durch reale Fotos ersetzen.
  */
 import type { ImageMetadata } from 'astro';
 import andreaFoto from '../bilder/testimonial-andrea.jpg';
 import sabineFoto from '../bilder/testimonial-sabine.jpg';
 import juliaFoto from '../bilder/testimonial-julia.jpg';
+import petraFoto from '../bilder/testimonial-petra.jpg';
+import ninaFoto from '../bilder/testimonial-nina.jpg';
+import melanieFoto from '../bilder/testimonial-melanie.jpg';
+import claudiaFoto from '../bilder/testimonial-claudia.jpg';
+import birgitFoto from '../bilder/testimonial-birgit.jpg';
+import simoneFoto from '../bilder/testimonial-simone.jpg';
+import katrinFoto from '../bilder/testimonial-katrin.jpg';
 
 export interface Kundenstimme {
   zitat: string;
@@ -47,48 +53,48 @@ export const kundenstimmen: Kundenstimme[] = [
       'Der Reißverschluss meiner Lieblingsjacke war kaputt – jetzt hält er wieder, und man merkt gar nicht, dass er ausgetauscht wurde.',
     name: 'Petra S.',
     ort: 'Kundin aus Bad Aibling',
-    foto: andreaFoto,
+    foto: petraFoto,
   },
   {
     zitat:
       'Für mein Vorstellungsgespräch brauchte ich schnell einen passenden Blazer – im Second-Hand-Regal fand ich genau das Richtige, direkt angepasst.',
     name: 'Nina F.',
     ort: 'Kundin aus Raubling',
-    foto: sabineFoto,
+    foto: ninaFoto,
   },
   {
     zitat:
       'Mein Kleid für die Hochzeit meiner Schwester wurde perfekt gekürzt, termingerecht und mit viel Liebe zum Detail.',
     name: 'Melanie T.',
     ort: 'Kundin aus Stephanskirchen',
-    foto: juliaFoto,
+    foto: melanieFoto,
   },
   {
     zitat:
       'Im Second-Hand-Bereich habe ich einen Ledermantel in Top-Zustand entdeckt – ein echter Glücksfund.',
     name: 'Claudia W.',
     ort: 'Kundin aus Bruckmühl',
-    foto: andreaFoto,
+    foto: claudiaFoto,
   },
   {
     zitat:
       'Der Anzug meines Mannes musste kurzfristig enger gemacht werden – kein Problem, alles hat perfekt gepasst.',
     name: 'Birgit H.',
     ort: 'Kundin aus Kolbermoor',
-    foto: sabineFoto,
+    foto: birgitFoto,
   },
   {
     zitat:
       'Nach dem Abnehmen musste mein Lieblingsrock enger gemacht werden – jetzt sitzt er wieder wie am ersten Tag.',
     name: 'Simone L.',
     ort: 'Kundin aus Rosenheim',
-    foto: juliaFoto,
+    foto: simoneFoto,
   },
   {
     zitat:
       'Auch für die Kinder gibt es im Second-Hand-Regal schöne Stücke – nachhaltig und günstig zugleich.',
     name: 'Katrin B.',
     ort: 'Kundin aus Bad Aibling',
-    foto: andreaFoto,
+    foto: katrinFoto,
   },
 ];
