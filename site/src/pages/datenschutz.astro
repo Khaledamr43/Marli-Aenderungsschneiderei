@@ -1,0 +1,230 @@
+---
+/**
+ * Datenschutzerklärung — Informationspflichten nach Art. 13/14 DSGVO
+ * und § 25 TTDSG für den tatsächlichen Funktionsumfang dieser Seite:
+ * statisches Hosting über GitHub Pages, eingebettete Google-Maps-Karte
+ * (FindUs.astro) und die lokal gespeicherte Theme-Einstellung
+ * (ThemeSwitch.astro / Base.astro). Es werden bewusst keine Angaben zu
+ * nicht vorhandenen Diensten (Analytics, Werbe-Cookies, Kontaktformular)
+ * gemacht.
+ */
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  titel="Datenschutzerklärung — Marli Änderungsschneiderei & Second-Hand"
+  beschreibung="Datenschutzerklärung der Änderungsschneiderei und Second-Hand Marli in Kolbermoor gemäß DSGVO und TTDSG."
+>
+  <Nav />
+  <main>
+    <section class="sektion">
+      <div class="wrap recht">
+        <header class="recht__kopf">
+          <p class="t-eyebrow">Rechtliches</p>
+          <h1 class="t-h1">Datenschutzerklärung</h1>
+        </header>
+
+        <div class="recht__inhalt">
+          <h2 class="t-h3">1. Verantwortlicher</h2>
+          <p class="t-body-base">
+            Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der
+            Datenschutz-Grundverordnung (DSGVO) ist:
+          </p>
+          <p class="t-body-base">
+            Änderungsschneiderei und Second-Hand Marli<br />
+            Rosenheimer Str. 29a<br />
+            83059 Kolbermoor<br />
+            Telefon: 0170 3540309
+          </p>
+
+          <h2 class="t-h3">2. Ihre Rechte auf einen Blick</h2>
+          <p class="t-body-base">
+            Wenn Sie diese Website besuchen, verarbeiten wir nur ein Mindestmaß an
+            personenbezogenen Daten, das für den technischen Betrieb einer einfachen
+            Informationsseite notwendig ist. Unabhängig davon haben Sie als betroffene Person
+            jederzeit folgende Rechte gegenüber uns:
+          </p>
+          <ul class="recht__liste t-body-base">
+            <li>Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO)</li>
+            <li>Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO)</li>
+            <li>Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO)</li>
+            <li>Einschränkung der Datenverarbeitung (Art. 18 DSGVO)</li>
+            <li>Herausgabe Ihrer Daten in einem übertragbaren Format (Art. 20 DSGVO)</li>
+            <li>
+              Widerspruch gegen die Verarbeitung Ihrer Daten, die auf Grundlage berechtigter
+              Interessen erfolgt (Art. 21 DSGVO)
+            </li>
+            <li>
+              Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3
+              DSGVO)
+            </li>
+            <li>
+              Beschwerde bei einer Datenschutz-Aufsichtsbehörde, z. B. dem Bayerischen
+              Landesamt für Datenschutzaufsicht (Art. 77 DSGVO)
+            </li>
+          </ul>
+
+          <h2 class="t-h3">3. Hosting und Server-Logfiles</h2>
+          <p class="t-body-base">
+            Diese Website wird als statische Seite über <strong>GitHub Pages</strong> gehostet,
+            einen Dienst von GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA
+            94107, USA. Beim Aufruf der Seite verarbeitet GitHub automatisch technische
+            Verbindungsdaten in Server-Logfiles, insbesondere:
+          </p>
+          <ul class="recht__liste t-body-base">
+            <li>gekürzte bzw. anonymisierte IP-Adresse</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>aufgerufene Datei bzw. URL und Referrer-URL</li>
+            <li>Browsertyp, Betriebssystem und übertragene Datenmenge</li>
+          </ul>
+          <p class="t-body-base">
+            Diese Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer
+            technisch fehlerfreien und sicheren Bereitstellung der Website (Art. 6 Abs. 1 lit.
+            f DSGVO). Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht
+            statt; die Logfiles werden nicht zur Erstellung von Nutzungsprofilen genutzt.
+            Da GitHub, Inc. ihren Sitz in den USA hat, kann es dabei zu einer Datenübermittlung
+            in ein Land außerhalb der EU/des EWR kommen. GitHub ist nach dem
+            EU-U.S. Data Privacy Framework zertifiziert, das ein von der EU-Kommission
+            anerkanntes angemessenes Datenschutzniveau gewährleistet. Weitere Informationen
+            finden Sie in der Datenschutzerklärung von GitHub:
+            <a
+              href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
+              target="_blank"
+              rel="noopener noreferrer">docs.github.com/site-policy/privacy-policies/github-general-privacy-statement</a
+            >.
+          </p>
+
+          <h2 class="t-h3">4. Lokale Speicherung Ihrer Theme-Einstellung</h2>
+          <p class="t-body-base">
+            Diese Website bietet einen Umschalter zwischen einer hellen und einer dunklen
+            Darstellung. Ihre Auswahl speichern wir ausschließlich lokal in Ihrem Browser
+            (<code>localStorage</code>, Schlüssel <code>marli-theme</code>), damit die
+            Darstellung bei einem erneuten Besuch erhalten bleibt. Diese Information verlässt
+            zu keinem Zeitpunkt Ihr Gerät und wird nicht an uns oder Dritte übertragen. Da es
+            sich um eine technisch notwendige Funktion handelt, ist hierfür gemäß § 25 Abs. 2
+            Nr. 2 TTDSG keine Einwilligung erforderlich. Sie können diese Information jederzeit
+            über die Einstellungen Ihres Browsers löschen.
+          </p>
+
+          <h2 class="t-h3">5. Eingebundene Google-Maps-Karte</h2>
+          <p class="t-body-base">
+            Im Bereich „Standort" binden wir eine Karte des Dienstes Google Maps ein, um Ihnen
+            die Anfahrt zu unserer Werkstatt zu erleichtern. Anbieter ist Google Ireland
+            Limited, Gordon House, Barrow Street, Dublin 4, Irland (Google). Beim Aufruf der
+            Standort-Sektion stellt Ihr Browser eine Verbindung zu Servern von Google her,
+            wodurch Google auch ohne Interaktion mit der Karte erfährt, dass Sie unsere Website
+            aufgerufen haben, und dabei unter anderem Ihre IP-Adresse verarbeiten kann. Diese
+            Verarbeitung kann auch auf Servern von Google in den USA erfolgen.
+          </p>
+          <p class="t-body-base">
+            Die Einbindung erfolgt auf Grundlage unseres berechtigten Interesses an einer
+            übersichtlichen und leicht zugänglichen Darstellung unseres Standorts (Art. 6 Abs.
+            1 lit. f DSGVO). Weitere Informationen zur Datenverarbeitung durch Google finden
+            Sie in der
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
+              >Datenschutzerklärung von Google</a
+            >. Wenn Sie diese Datenübermittlung nicht wünschen, nutzen Sie bitte die im Text
+            angegebene Adresse für die Anfahrtsplanung außerhalb dieser Website.
+          </p>
+
+          <h2 class="t-h3">6. Telefonische Kontaktaufnahme</h2>
+          <p class="t-body-base">
+            Wenn Sie uns unter der angegebenen Telefonnummer kontaktieren, verarbeiten wir die
+            von Ihnen im Gespräch mitgeteilten Daten (z. B. Name, Rückrufnummer, Anliegen), um
+            Ihre Anfrage zu bearbeiten, etwa im Rahmen einer Terminvereinbarung oder eines
+            Änderungsauftrags. Rechtsgrundlage ist die Erfüllung bzw. Anbahnung eines Vertrags
+            (Art. 6 Abs. 1 lit. b DSGVO) oder, sofern kein Vertrag zustande kommt, unser
+            berechtigtes Interesse an der Beantwortung Ihrer Anfrage (Art. 6 Abs. 1 lit. f
+            DSGVO). Diese Daten werden nicht auf dieser Website gespeichert oder verarbeitet.
+          </p>
+
+          <h2 class="t-h3">7. Kein Tracking, keine Analyse- oder Werbe-Cookies</h2>
+          <p class="t-body-base">
+            Diese Website verwendet keine Analyse-Tools wie Google Analytics, keine
+            Werbe-Cookies, keine Social-Media-Plugins und keine externen Schriftarten von
+            Drittanbietern. Schriftarten werden lokal ausgeliefert, es findet also auch beim
+            Laden von Schriften keine Verbindung zu Servern Dritter statt. Es werden keine
+            Nutzerprofile erstellt und keine Daten zu Marketingzwecken weitergegeben.
+          </p>
+
+          <h2 class="t-h3">8. Speicherdauer</h2>
+          <p class="t-body-base">
+            Server-Logfiles werden von GitHub Pages nur für einen kurzen, technisch bedingten
+            Zeitraum vorgehalten. Ihre Theme-Einstellung bleibt lokal in Ihrem Browser
+            gespeichert, bis Sie sie selbst löschen oder ändern. Daten aus telefonischer
+            Kontaktaufnahme bewahren wir nur so lange auf, wie dies zur Bearbeitung Ihres
+            Anliegens bzw. zur Erfüllung gesetzlicher Aufbewahrungspflichten erforderlich ist.
+          </p>
+
+          <h2 class="t-h3">9. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+          <p class="t-body-base">
+            Diese Datenschutzerklärung entspricht dem aktuellen Funktionsumfang unserer
+            Website. Durch die Weiterentwicklung der Website oder Änderungen rechtlicher
+            Vorgaben kann es notwendig werden, diese Erklärung anzupassen. Es gilt jeweils die
+            aktuelle, auf dieser Seite veröffentlichte Fassung.
+          </p>
+          <p class="t-body-small recht__stand">Stand: September 2026</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .recht__kopf {
+    max-width: 660px;
+    margin-bottom: var(--space-48);
+  }
+
+  .recht__kopf > .t-eyebrow {
+    color: var(--color-accent-brass);
+    margin-bottom: var(--space-16);
+  }
+
+  .recht__inhalt {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .recht__inhalt h2 {
+    margin-top: var(--space-24);
+  }
+
+  .recht__inhalt a {
+    color: var(--color-accent-brass);
+    text-decoration: underline;
+    text-decoration-color: var(--color-border-hairline);
+    word-break: break-word;
+  }
+
+  .recht__inhalt a:hover,
+  .recht__inhalt a:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  .recht__inhalt code {
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.9em;
+    background-color: var(--color-bg-muted);
+    padding: 0.15em 0.4em;
+    border-radius: var(--radius-sm);
+  }
+
+  .recht__liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-left: var(--space-24);
+    color: var(--color-ink-secondary);
+  }
+
+  .recht__stand {
+    color: var(--color-ink-secondary);
+    margin-top: var(--space-16);
+  }
+</style>
