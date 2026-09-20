@@ -10,6 +10,9 @@
  * ergänzt. Das iframe selbst ist pointer-events:none (nicht drag-/zoombar,
  * rein visuell) — Klicks gehen an den umschließenden Link.
  */
+import { Image } from 'astro:assets';
+import parkplatzSchild from '../bilder/parkplatz.jpg';
+
 const googleMapsUrl = 'https://share.google/8rPp6syfD4A2eWoCz';
 const googleMapsEmbedSrc =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.814114703696!2d12.068574560278552!3d47.84981017379262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47761b0a472264a3%3A0x6a5f49446c5c4e81!2s%C3%84nderungsschneiderei%20und%20Second%20-%20Hand%20Marli!5e0!3m2!1sen!2sde!4v1787148355471!5m2!1sen!2sde';
@@ -40,6 +43,19 @@ const oeffnungszeiten = [
           aria-hidden="true"
         ></iframe>
       </a>
+
+      <figure class="standort__parken">
+        <Image
+          src={parkplatzSchild}
+          alt="Parkplatz-Schild der Änderungsschneiderei Marli"
+          class="standort__parken-foto"
+          widths={[400, 600, 920]}
+          sizes="(max-width: 899px) 100vw, 500px"
+          quality={80}
+          loading="lazy"
+        />
+        <figcaption class="t-body-base">Eigener Parkplatz direkt vor Ort vorhanden.</figcaption>
+      </figure>
     </div>
 
     <div class="standort__text">
@@ -109,6 +125,24 @@ const oeffnungszeiten = [
     height: 450px;
     border: 0;
     pointer-events: none;
+  }
+
+  .standort__parken {
+    margin: var(--space-24) 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .standort__parken-foto {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .standort__parken figcaption {
+    color: var(--color-ink-secondary);
   }
 
   .standort__text {
